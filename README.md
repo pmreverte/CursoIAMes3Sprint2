@@ -15,33 +15,33 @@ El proyecto está estructurado siguiendo el patrón **MVC (Model-View-Controller
 
 ### **1. 🎮 Controlador**
 
-- ``: Maneja las solicitudes HTTP relacionadas con la gestión de tareas.
+- Maneja las solicitudes HTTP relacionadas con la gestión de tareas.
 
 ### **2. 🛠️ Servicios y Repositorios**
 
-- ``: Define las operaciones de acceso a datos.
-- ``: Implementa la persistencia en memoria.
-- ``: Define la lógica de negocio.
-- ``: Implementa la lógica de negocio sobre las tareas.
+- Define las operaciones de acceso a datos.
+- Implementa la persistencia en memoria.
+- Define la lógica de negocio.
+- Implementa la lógica de negocio sobre las tareas.
 
 ### **3. 🗂️ Modelos**
 
-- ``: Modelo que representa una tarea, con validaciones y atributos personalizados.
-- ``: Contiene la lista de tareas y los datos de paginación.
+- Modelo que representa una tarea, con validaciones y atributos personalizados.
+- Contiene la lista de tareas y los datos de paginación.
 
 ### **4. 🎨 Vistas**
 
-- 📌 ``: Listado de tareas.
-- 📝 ``: Formulario para agregar una nueva tarea.
-- ✏️ ``: Edición de una tarea existente.
-- ❌ ``: Confirmación de eliminación de tareas.
+- 📌 Listado de tareas.
+- 📝 Formulario para agregar una nueva tarea.
+- ✏️ Edición de una tarea existente.
+- ❌ Confirmación de eliminación de tareas.
 - 📎 **Vistas Parciales**: `_Pagination.cshtml`, `_Filters.cshtml`, `_TaskCard.cshtml`, `_Notifications.cshtml`.
 
 ### **5. ⚙️ Configuración**
 
-- ``: Configura los servicios y rutas del proyecto.
-- `` y ``: Contienen las configuraciones de la aplicación, como niveles de logging y entornos de desarrollo.
-- ``: Define las URLs de ejecución en entornos locales.
+- Configura los servicios y rutas del proyecto.
+- Contienen las configuraciones de la aplicación, como niveles de logging y entornos de desarrollo.
+- Define las URLs de ejecución en entornos locales.
 
 ## 🔧 Requisitos Previos
 
