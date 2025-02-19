@@ -1,0 +1,67 @@
+@{
+    Layout = "_Layout";  
+}
+@model TaskListViewModel
+@using Sprint2.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+            <h1>Tareas</h1>
+        </div>
+        <div class="col text-end">
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Nueva Tarea
+            </a>
+        </div>
+    </div>
+
+    @await Html.PartialAsync("_Notifications")
+
+    @await Html.PartialAsync("_Filters", Model.Filter)
+
+    @if (!Model.Tasks.Any())
+    {
+        <div class="alert alert-info">
+            <i class="bi bi-info-circle"></i> No se encontraron tareas que coincidan con los criterios de búsqueda.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-12">
+                @foreach (var task in Model.Tasks)
+                {
+                    @await Html.PartialAsync("_TaskCard", task)
+                }
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Pagination", Model.Pagination)
+    }
+</div>
+
+@section Scripts {
+    <script>
+        // Actualizar estado de tarea mediante AJAX
+        function updateTaskStatus(taskId, newStatus) {
+            $.post('@Url.Action("UpdateStatus")', { id: taskId, newStatus: newStatus })
+                .done(function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert('Error al actualizar el estado: ' + response.message);
+                    }
+                })
+                .fail(function() {
+                    alert('Error al actualizar el estado de la tarea');
+                });
+        }
+
+        // Cerrar alertas automáticamente después de 5 segundos
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 5000);
+    </script>
+}
